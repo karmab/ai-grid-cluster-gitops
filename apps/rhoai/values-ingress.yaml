@@ -13,3 +13,9 @@ praxis-gateway:
     secretName: grid-site-identity
   service:
     type: LoadBalancer
+  praxisConfig:
+    render:
+      auth:
+        # MaaS authenticates via Authorino; the consumer gateway itself is
+        # behind the Istio ingress and never directly exposed.
+        allowUnauthenticatedExposure: true
