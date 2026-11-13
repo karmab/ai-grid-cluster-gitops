@@ -93,6 +93,9 @@ spec:
                     - podSelector:
                         matchLabels:
                           grid.opendatahub.io/gateway-client: "true"
+                    - podSelector:
+                        matchLabels:
+                          app.kubernetes.io/name: grid-operator
                     - namespaceSelector:
                         matchLabels:
                           network.openshift.io/policy-group: ingress
