@@ -1,0 +1,15 @@
+# Overrides for the ingress cluster consumer gateway (praxis-gateway).
+#
+# listenerTls: The chart profile sets grid-gateway-listener-tls (service-CA),
+# but the grid-operator health-checks the gateway using the grid CA. Using the
+# grid-site-identity cert satisfies mTLS verification.
+#
+# service.type: The profile defaults to ClusterIP, but the operator discovers
+# the gateway address from the Service LoadBalancer IP
+# (GRID_GATEWAY_DISCOVERY_ENABLED). Without an external IP, the local GridSite
+# stays AddressMissing.
+praxis-gateway:
+  listenerTls:
+    secretName: grid-site-identity
+  service:
+    type: LoadBalancer
