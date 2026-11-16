@@ -16,6 +16,11 @@ spec:
     tokenRateLimits:
     - limit: 1000
       window: 1m
+  - name: qwen3-0-6b
+    namespace: models-as-a-service
+    tokenRateLimits:
+    - limit: 1000
+      window: 1m
   - name: smollm2-135m-instruct
     namespace: models-as-a-service
     tokenRateLimits:
@@ -37,6 +42,8 @@ metadata:
 spec:
   modelRefs:
   - name: facebook-opt-125m
+    namespace: models-as-a-service
+  - name: qwen3-0-6b
     namespace: models-as-a-service
   - name: smollm2-135m-instruct
     namespace: models-as-a-service
